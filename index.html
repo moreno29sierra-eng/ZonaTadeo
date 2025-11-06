@@ -9,88 +9,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f8fafc;
+      background-color: #f4f7fa;
       color: #1e2a3a;
       margin: 0;
       overflow-x: hidden;
     }
 
-    /* ==== Animación de carga ==== */
-    #loader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: #002b5c;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      font-size: 1.5em;
-      z-index: 9999;
-    }
-
-    #loader .spinner {
-      margin-top: 15px;
-      border: 4px solid #fff;
-      border-top: 4px solid #00aaff;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* ==== Encabezado ==== */
+    /* Header */
     header {
-      background: linear-gradient(135deg, #002b5c, #0056b3);
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
       color: white;
-      padding: 30px 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 25px 15px;
       text-align: center;
-      animation: fadeDown 1s ease-in-out;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2.3em;
+      font-size: 2em;
       letter-spacing: 1px;
+      margin: 0;
     }
 
     .slogan {
       font-style: italic;
-      color: #d7e8ff;
-      margin-top: 5px;
-      font-size: 1.1em;
+      color: #cbd5e1;
+      font-size: 1.05em;
     }
 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    main { padding: 40px 20px; text-align: center; }
 
-    /* ==== Filtros ==== */
-    main {
-      padding: 40px 20px;
-    }
-
-    label {
-      font-weight: 600;
-      margin-right: 6px;
-    }
-
+    /* Filtros */
     select {
       padding: 8px 12px;
       border-radius: 8px;
@@ -100,7 +52,7 @@
       font-size: 1em;
     }
 
-    /* ==== Grid de productos ==== */
+    /* Productos */
     .grid {
       display: flex;
       flex-wrap: wrap;
@@ -110,11 +62,12 @@
 
     .producto {
       background: white;
-      border-radius: 15px;
+      border-radius: 20px;
       padding: 15px;
-      width: 240px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      width: 250px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
       opacity: 0;
       transform: translateY(30px);
     }
@@ -126,21 +79,22 @@
     }
 
     .producto:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
 
     .producto img {
       width: 100%;
       height: 220px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 12px;
       margin-bottom: 10px;
+      transition: transform 0.2s ease;
     }
 
     .producto h3 {
-      font-size: 1.05rem;
-      color: #002b5c;
+      color: #1e3a8a;
+      font-size: 1.1rem;
       margin-bottom: 5px;
     }
 
@@ -151,44 +105,39 @@
     }
 
     .producto button {
-      background-color: #0056b3;
+      background-color: #1e3a8a;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 8px 14px;
       margin-top: 10px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
+      transition: background-color 0.25s ease;
     }
 
     .producto button:hover {
-      background-color: #003f7f;
+      background-color: #0f1f4a;
     }
 
-    /* ==== Carrito ==== */
+    /* Carrito */
     .carrito {
       background: white;
-      border-radius: 15px;
+      border-radius: 20px;
       padding: 20px;
       margin: 40px auto;
       width: 90%;
       max-width: 420px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       text-align: left;
-      animation: fadeIn 1.2s ease;
     }
 
     .carrito h2 {
-      color: #002b5c;
+      color: #1e3a8a;
       text-align: center;
       margin-top: 0;
     }
 
-    .carrito ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0;
-    }
+    .carrito ul { list-style: none; padding: 0; margin: 10px 0; }
 
     .carrito li {
       padding: 6px 0;
@@ -197,7 +146,7 @@
     }
 
     .vaciar {
-      background-color: #dc3545;
+      background-color: #dc2626;
       color: white;
       border: none;
       padding: 10px 14px;
@@ -208,45 +157,46 @@
       transition: background-color 0.2s ease;
     }
 
-    .vaciar:hover {
-      background-color: #b02a37;
-    }
+    .vaciar:hover { background-color: #b91c1c; }
 
     footer {
-      background-color: #002b5c;
-      color: #cde3ff;
+      background-color: #1e3a8a;
+      color: #e0e7ff;
       padding: 15px;
       font-size: 0.9em;
       margin-top: 50px;
     }
 
-    footer a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    #lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    #lightbox.close {
+      cursor: pointer;
     }
+
   </style>
 </head>
 
 <body>
-  <!-- Loader -->
-  <div id="loader">
-    <div>ZonaTadeo</div>
-    <div class="spinner"></div>
-  </div>
-
   <header>
     <h1>ZonaTadeo</h1>
-    <p class="slogan">Diseños únicos, estilo auténtico.</p>
+    <p class="slogan">Moda urbana universitaria 🔥</p>
   </header>
 
   <main>
@@ -272,19 +222,18 @@
   </main>
 
   <footer>
-    © 2025 ZonaTadeo | Diseñado con 💙 por universitarios
+    © 2025 ZonaTadeo | Moda joven y auténtica 💙
   </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="cerrarLightbox()">
+    <img src="" alt="Vista ampliada">
+  </div>
 
   <!-- PayPal SDK -->
   <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=COP"></script>
 
   <script>
-    // Ocultar loader al cargar
-    window.addEventListener("load", () => {
-      document.getElementById("loader").style.opacity = "0";
-      setTimeout(() => document.getElementById("loader").style.display = "none", 600);
-    });
-
     const productos = [
       { id: 1, nombre: "Hoodie Verde Oscuro", categoria: "Hoodies", precio: 180000, imagen: "https://raw.githubusercontent.com/moreno29sierra-eng/ZonaTadeo/main/Hoddie.jpg" },
       { id: 2, nombre: "Corset Denim Black", categoria: "Corsets", precio: 140000, imagen: "https://raw.githubusercontent.com/moreno29sierra-eng/ZonaTadeo/main/Corset.jpg" },
@@ -300,7 +249,6 @@
     const totalCarrito = document.getElementById("total");
     const categoriaSelect = document.getElementById("categoria");
     const paypalContainer = document.getElementById("paypal-button-container");
-
     const formato = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' });
 
     function renderProductos(lista = productos) {
@@ -309,14 +257,14 @@
         const div = document.createElement("div");
         div.className = "producto";
         div.innerHTML = `
-          <img src="${prod.imagen}" alt="${prod.nombre}">
+          <img src="${prod.imagen}" alt="${prod.nombre}" onclick="abrirLightbox('${prod.imagen}')">
           <h3>${prod.nombre}</h3>
           <p>${formato.format(prod.precio)}</p>
           <button onclick="agregarAlCarrito(${prod.id})">Agregar al carrito</button>
         `;
         contenedorProductos.appendChild(div);
       });
-      // Animar aparición de productos
+
       const productosDOM = document.querySelectorAll(".producto");
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -324,6 +272,16 @@
         });
       }, { threshold: 0.2 });
       productosDOM.forEach(el => observer.observe(el));
+    }
+
+    function abrirLightbox(src) {
+      const lb = document.getElementById("lightbox");
+      lb.style.display = "flex";
+      lb.querySelector("img").src = src;
+    }
+
+    function cerrarLightbox() {
+      document.getElementById("lightbox").style.display = "none";
     }
 
     function agregarAlCarrito(id) {
@@ -337,17 +295,14 @@
     function actualizarCarrito() {
       listaCarrito.innerHTML = "";
       let total = 0;
-
       carrito.forEach(item => {
         const li = document.createElement("li");
         li.textContent = `${item.nombre} x${item.cantidad} - ${formato.format(item.precio * item.cantidad)}`;
         listaCarrito.appendChild(li);
         total += item.precio * item.cantidad;
       });
-
       totalCarrito.textContent = formato.format(total);
       localStorage.setItem("carritoZT", JSON.stringify(carrito));
-
       paypalContainer.style.display = total > 0 ? "block" : "none";
       if (total > 0) renderPayPal(total);
     }
